@@ -1,0 +1,36 @@
+<div class="row mt-3">
+  <div class="col d-flex justify-content-between align-items-center">
+    <div class="fs-1 fw-bold text-primary">Menu (${{ totalPrice.toFixed(2) }})</div>
+    <div>
+      <button type="button" (click)="placeOrder()" class="btn btn-primary">
+        Place Order ({{ totalQuantity }})
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Loop through each menu item -->
+<div *ngFor="let item of menuItems" class="row mb-2">
+  <div class="col">
+    <div class="menu-item">
+      <div>
+        <button type="button" class="btn btn-warning" (click)="removeItem(item.id)">
+          <i class="bi bi-x-square"></i>
+        </button>
+      </div>
+      <div class="menu-details">
+        <div>Name: <span class="fw-bold">{{ item.name }}</span></div>
+        <div>Description:
+          <span class="fst-italic">{{ item.description }}</span>
+        </div>
+        <div class="text-danger fw-bold">Price: ${{ item.price.toFixed(2) }}</div>
+        <div class="text-danger fw-bold">Quantity: {{ item.quantity || 0 }}</div>
+      </div>
+      <div class="menu-button-end">
+        <button type="button" class="btn btn-success" (click)="addItem(item.id)">
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

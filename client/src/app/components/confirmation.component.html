@@ -1,0 +1,35 @@
+<div class="row mt-3">
+  <div class="col">
+    <div class="fs-1 fw-bold text-primary">Order Placed</div>
+    <div class="d-flex justify-content-end">
+      <button type="button" (click)="startOver()" class="btn btn-secondary">Back</button>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col">
+    <p>Your order details are below</p>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Date:</td>
+          <td>{{ timestamp | date: 'MMM d, y' }}</td>
+
+        </tr>
+        <tr>
+          <td>Order Id:</td>
+          <td>{{ orderId }}</td>
+        </tr>
+        <tr>
+          <td>Payment Id:</td>
+          <td>{{ paymentId }}</td>
+        </tr>
+        <tr>
+          <td>Total:</td>
+          <td>${{ total| number: '1.2-2'  }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
